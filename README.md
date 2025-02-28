@@ -18,6 +18,8 @@ Functies:
 3 - slaan: met een druk op de knop kan je de poppetje laten slaan. Dan verschijnt er een ander poppetje dat het poppetje kan slaan.
 4 - dansen: je kan het poppetje laten dansen.
 
+keuze:
+
 Een luchtballon dat kan opstijgen.
 Functies:
 1 - Opstijgen & dalen: Met een hendel kan je de temperatuurr regelen. De temperatuur krijg je dan te zien. 
