@@ -35,8 +35,8 @@ Bij een hoge temperatuur stijgt de ballon sneller omhoog en een lage temperatuur
 
 Degene die het hoogst komt heeft gewonnen.
 
-<img src="readmeimg/afb2.jpg" alt="ballon1">
-<img src="readmeimg/YzgobOJ-800.jpg" alt="ballon2">
-<img src="readmeimg/vogels.jpg" alt="vogels">
-<img src="readmeimg/uphouse.jpg" alt="uphouse">
+<img src="readmeimg/afb2.jpg" alt="ballon1" width="200">
+<img src="readmeimg/YzgobOJ-800.jpg" width="200" alt="ballon2">
+<img src="readmeimg/vogels.jpg" width="200" alt="vogels">
+<img src="readmeimg/uphouse.jpg" width="200" alt="uphouse">
 
