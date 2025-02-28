@@ -34,9 +34,9 @@ Bij een hoge temperatuur stijgt de ballon sneller omhoog en een lage temperatuur
 11 - De hoogste hoogte die je hebt bereikt wordt bewaard en displayed.
 
 Degene die het hoogst komt heeft gewonnen.
-<p><img src="readmeimg/afb2.jpg" alt="ballon1" width="300">
+<img src="readmeimg/afb2.jpg" alt="ballon1" width="300">
 <img src="readmeimg/YzgobOJ-800.jpg" width="300" alt="ballon2">
 <img src="readmeimg/vogels.jpg" width="300" alt="vogels">
-<img src="readmeimg/uphouse.jpg" width="300" alt="uphouse"></p>
+<img src="readmeimg/uphouse.jpg" width="300" alt="uphouse">
 
 
