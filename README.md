@@ -43,3 +43,8 @@ Degene die het hoogst komt heeft gewonnen.
 <img src="readmeimg/uphouse.jpg" width="300" alt="uphouse">
 
 
+https://www.pyxofy.com/css-art-hot-air-balloon/
+https://codepen.io/shooft/pen/RNwpNav?editors=0110
+https://www.youtube.com/watch?v=e6jnl3iAezM
+
+Week 2:

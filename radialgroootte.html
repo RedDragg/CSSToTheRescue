@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radial Gradient Groottes</title>
+    <style>
+        body {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .box {
+            width: 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .closest-side {
+            background: radial-gradient(closest-side at 100% 100%, red 50%, blue 50%);
+        }
+
+        .farthest-side {
+            background: radial-gradient(farthest-side at 100% 100%, red 50%, blue 50%);
+        }
+
+        .closest-corner {
+            background: radial-gradient(closest-corner at 100% 100%, red 50%, blue 50%);
+        }
+
+        .farthest-corner {
+            background: radial-gradient(farthest-corner at 100% 100%, red 50%, blue 50%);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box closest-side">closest-side</div>
+    <div class="box farthest-side">farthest-side</div>
+    <div class="box closest-corner">closest-corner</div>
+    <div class="box farthest-corner">farthest-corner</div>
+
+</body>
+</html>

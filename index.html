@@ -1,12 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
 
-    
-</body>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --size: 20vw;
+      --height: 0vh;
+      --hoogte: 0em;
+    }
+
+    body {
+      display: grid;
+      height: 100vh;
+      place-items: baseline;
+    }
+
+    main {
+      min-width: 70vw;
+      height: 100vh;
+      background: transparent;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+
+      border: solid 1px black;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ballon, ballononderkant en touwen styling */
+    li:nth-child(1) {
+      position: relative;
+      height: calc(var(--size) + var(--height));
+      width: var(--size);
+      border-radius: 50%;
+      aspect-ratio: 1;
+      background-color: blue;
+      background-repeat: no-repeat;
+
+      transform: translateY(var(--hoogte));
+
+      background-image: linear-gradient(
+          90deg,
+          transparent 49.5%,
+          red 0 51.7%,
+          transparent 51.7%
+        ),
+        radial-gradient(at right center, red 71%, transparent 71.1%),
+        radial-gradient(at right center, white 71%, transparent 71.1%),
+        radial-gradient(at right center, red 71%, transparent 71.1%),
+        radial-gradient(at right center, white 71%, transparent 71.1%),
+        radial-gradient(at right center, red 71%, transparent 71.1%),
+        radial-gradient(at left center, red 71%, transparent 71.1%),
+        radial-gradient(at left center, white 71%, transparent 71.1%),
+        radial-gradient(at left center, red 71%, transparent 71.1%),
+        radial-gradient(at left center, white 70%, transparent 70.1%),
+        radial-gradient(at left center, red 71%, transparent 71.1%);
+
+      background-size: 100% 100%, 13% 100%, 25% 100%, 37% 100%, 48% 100%,
+        61% 100%, 13% 100%, 25% 100%, 37% 100%, 44.35% 100%, 61% 100%;
+
+      background-position: 0 0, calc(100% - var(--size) + 58%) 0em,
+        calc(100% - var(--size) + 68%) 0em, calc(100% - var(--size) + 81%) 0em,
+        calc(100% - var(--size) + 98%) 0em, calc(100% - var(--size) + 130%) 0em,
+        calc(100% - var(--size) + 73%) 0em, calc(100% - var(--size) + 101%) 0em,
+        calc(100% - var(--size) + 138%) 0em, calc(100% - var(--size) + 175%) 0em,
+        calc(100% - var(--size) + 284%) 0em;
+
+      /* onderkant ballon  styling */
+      &:after {
+        content: "";
+        position: absolute;
+        top: calc(calc(var(--size) / 1.055) + var(--height));
+        left: calc(var(--size) / 3.3);
+        height: calc(var(--size) / 6);
+        width: calc(var(--size) / 2.5);
+        background-color: blue;
+        clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
+        background-image: linear-gradient(
+          90deg,
+          red 7%,
+          white 0 12%,
+          red 0 24%,
+          white 0 36%,
+          red 0 65%,
+          white 0 79%,
+          red 0 91%,
+          white 0 95%,
+          red 0
+        );
+      }
+
+      /* touwen styling */
+      &:before {
+        content: "";
+        position: absolute;
+        top: calc(calc(var(--size) / 1.0585 + 17%) + var(--height));
+        left: calc(var(--size) / 2.89);
+        height: calc(var(--size) / 6);
+        width: calc(var(--size) / 3.15);
+        background-color: transparent;
+        background-image: 
+          linear-gradient(90deg,transparent 20%, black 0 25%, transparent 25%),
+          linear-gradient(84deg, transparent 5%, black 5.8% 9.2%, transparent 10%),
+          linear-gradient(90deg, transparent 70%, black 0 75%, transparent 75%),
+          linear-gradient(96deg, transparent 90%, black 90.8% 94.2%, transparent 95%)
+      }
+    }
+
+    /* mandje styling */
+    li:nth-child(2) {
+      --border-radius-mandje: 20%;
+      aspect-ratio: 1;
+
+      position: absolute;
+      height: calc(var(--size) / 4);
+      width: calc(var(--size) / 3);
+
+      transform: translate(100%, calc(var(--size) - 297% + var(--hoogte)));
+
+      border-radius: var(--border-radius-mandje);
+      filter: drop-shadow(#a68347 1px 2px 2px);
+
+      background-image: linear-gradient(
+          #fddf97 50%,
+          transparent 0 90%,
+          #fddf97 0
+        ),
+        linear-gradient(
+          90deg,
+          #fddf97 15%,
+          hsl(42, 96%, 50%) 0 28%,
+          #fddf97 0 44%,
+          hsl(42, 96%, 50%) 0 57%,
+          #fddf97 0 74%,
+          hsl(42, 96%, 50%) 0 87%,
+          #fddf97 0
+        ),
+        radial-gradient(circle at top left, #fddf97, #e0be84);
+      /* streepjes styling */
+      &::after {
+        content: "";
+        position: absolute;
+        height: calc(var(--size) / 12);
+        width: calc(var(--size) / 2.8);
+        transform: translate(calc(var(--size) - 283%), 0);
+        border-radius: 6px 6px;
+        background: radial-gradient(circle at top left, #fddf97, #e0be84);
+        filter: drop-shadow(#a68347 1px 2px 2px);
+      }
+    }
+
+    li:nth-of-type(3) {
+        position: absolute;
+        height: calc(var(--size) / 10);
+        width: calc(var(--size) / 10);
+        background: radial-gradient(at top left, #ec5c5c, #c8444f);
+        filter: drop-shadow(#9e343c 3px 1px 2px);
+        border-top-left-radius: 30%;
+        border-top-right-radius: 150%;
+        border-bottom-right-radius: 150%;
+        border-bottom-left-radius: 150%;
+        transform: rotate(45deg) translate(calc(513% + var(--hoogte) / 1.42 + 15%), calc(var(--size) / 10 - 226% + var(--hoogte) / 1.42 + 15%));
+
+        &::after{
+            content: '';
+            position: absolute;
+            height: calc(var(--size) / 10);
+            width: calc(var(--size) / 17);
+            background: radial-gradient(circle at top left, #ec5c5c, #c8444f);
+            border-radius: 50vw 0px 0px 20vw;
+            transform: rotate(-44deg) translate(-319%, 84%);
+        }
+
+        &::before{
+            content: '';
+            position: absolute;
+            height: calc(var(--size) / 10);
+            width: calc(var(--size) / 17);
+            background: radial-gradient(circle at top left, #ec5c5c, #c8444f);
+            border-radius: 0 50vw 20vw 0;
+            transform: rotate(-46deg) translate(356%, 84%);
+        }
+    }
+  </style>
+
+  <body>
+    <main>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </main>
+  </body>
 </html>
