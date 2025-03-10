@@ -48,3 +48,4 @@ https://codepen.io/shooft/pen/RNwpNav?editors=0110
 https://www.youtube.com/watch?v=e6jnl3iAezM
 
 Week 2:
+In week 2 heb ik gradients onderzocht en ermee geëxperimenteerd. Het is mij gelukt om de luchtballon met gradients te maken en vervolgens heb ik het mandje en de zakjes gemaakt in aparte li's
