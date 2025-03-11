@@ -22,6 +22,7 @@ body {
   height: 100vh;
   place-items: baseline;
   grid-template-rows: 1fr 1fr;
+  background-image: linear-gradient(to bottom, #b7eaff 0%,#94dfff 100%);
 }
 
 main {
@@ -86,6 +87,12 @@ main {
     width: calc(var(--size) / 2.5);
     background-color: blue;
     clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
+
+    mask-image: url(../onderkantluchtballon.png);
+    mask-size: cover;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-mode: luminance;
     
     background-image: linear-gradient(90deg, 
       var(--balloon-color) 5%, 
@@ -103,7 +110,7 @@ main {
   &:before {
     content: "";
     position: absolute;
-    top: calc(calc(var(--size) / 1.0585 + 17%) + var(--height));
+    top: calc(calc(var(--size) / 1.0585 + 15%) + var(--height));
     left: calc(var(--size) / 2.89);
     height: calc(var(--size) / 6);
     width: calc(var(--size) / 3.15);
@@ -128,7 +135,6 @@ li:nth-child(2) {
   transform: translate(100%, calc(var(--size) - 297%));
 
   border-radius: var(--border-radius-mandje);
-  filter: drop-shadow(#a68347 1px 2px 2px);
 
   background-image: linear-gradient(
       #fddf97 50%,
@@ -155,7 +161,6 @@ li:nth-child(2) {
     transform: translate(calc(var(--size) - 283%), 0);
     border-radius: 6px 6px;
     background: radial-gradient(circle at top left, #fddf97, #e0be84);
-    filter: drop-shadow(#a68347 1px 2px 2px);
   }
 }
 /* zakjes stylng */
@@ -164,7 +169,6 @@ li:nth-of-type(3) {
     height: calc(var(--size) / 10);
     width: calc(var(--size) / 10);
     background: radial-gradient(at top left, #ec5c5c, #c8444f);
-    filter: drop-shadow(#9e343c 3px 1px 2px);
     border-top-left-radius: 30%;
     border-top-right-radius: 150%;
     border-bottom-right-radius: 150%;
@@ -197,12 +201,13 @@ li:nth-of-type(3) {
 ul:nth-of-type(2){
     position: absolute;
     top: 103px;
+    --wolk-color: rgb(146, 146, 146);
 
     li{
         position: absolute;
         height: clamp(1em, 3vw, 1.75em);
         width: clamp(3em, 10vw, 6em) ;
-        background-color: blue;
+        background-color: var(--wolk-color);
         border-radius: 5rem;
         bottom: 0;
     }
@@ -213,7 +218,7 @@ ul:nth-of-type(2){
         width: clamp(27px, 5vw, 50px);
         height: clamp(30px, 6vw, 53px);
         border-radius: 50%;
-        background-color: blue;
+        background-color: var(--wolk-color);
         right: 10%;
         bottom: 0;
     }
@@ -224,7 +229,7 @@ ul:nth-of-type(2){
         width: clamp(21px, 5vw, 48px);
         height: clamp(25px, 5vw, 47px);
         border-radius: 50%;
-        background-color: blue;
+        background-color: var(--wolk-color);
         bottom: 0;
         left: 10%;
     }
@@ -235,30 +240,33 @@ ul:nth-of-type(2){
 footer{
   width: 100%;
   height: 5vh;
-  background-color: #9e343c;
+  background-image: linear-gradient(to bottom, #057a26, #d5ff00);
+  border: none;
 }
 
 /* left right controls */
+header{
 
-body:has(#ctrl-lr-1:checked) header > ul:first-of-type > li { transform: translateX(calc(var(--button-left-right-size) * -2)); }
-body:has(#ctrl-lr-2:checked) header > ul:first-of-type > li { transform: translateX(calc(var(--button-left-right-size) * -4)); }
-body:has(#ctrl-lr-3:checked) header > ul:first-of-type > li { transform: translateX(calc(var(--button-left-right-size) * -6)); }
-body:has(#ctrl-lr-4:checked) header > ul:first-of-type > li { transform: translateX(calc(var(--button-left-right-size) * -8)); }
-body:has(#ctrl-lr-5:checked) header > ul:first-of-type > li { transform: translateX(calc(var(--button-left-right-size) * -10)); }
-body:has(#ctrl-lr-6:checked) header > ul:first-of-type > li { transform: translateX(calc(var(--button-left-right-size) * -12)); }
-body:has(#ctrl-lr-7:checked) header > ul:first-of-type > li { transform: translateX(calc(var(--button-left-right-size) * -14)); }
-body:has(#ctrl-lr-8:checked) header > ul:first-of-type > li { transform: translateX(calc(var(--button-left-right-size) * -16)); }
-body:has(#ctrl-lr-9:checked) header > ul:first-of-type > li { transform: translateX(calc(var(--button-left-right-size) * -18)); }
-body:has(#ctrl-lr-10:checked) header > ul:first-of-type > li { transform: translateX(calc(var(--button-left-right-size) * -20)); }
-body:has(#ctrl-lr-11:checked) header > ul:first-of-type > li { transform: translateX(calc(var(--button-left-right-size) * -22)); }
-body:has(#ctrl-lr-12:checked) header > ul:first-of-type > li { transform: translateX(calc(var(--button-left-right-size) * -24)); }
-body:has(#ctrl-lr-13:checked) header > ul:first-of-type > li { transform: translateX(calc(var(--button-left-right-size) * -26)); }
-body:has(#ctrl-lr-14:checked) header > ul:first-of-type > li { transform: translateX(calc(var(--button-left-right-size) * -28)); }
-body:has(#ctrl-lr-15:checked) header > ul:first-of-type > li { transform: translateX(calc(var(--button-left-right-size) * -30)); }
-body:has(#ctrl-lr-16:checked) header > ul:first-of-type > li { transform: translateX(calc(var(--button-left-right-size) * -32)); }
-body:has(#ctrl-lr-17:checked) header > ul:first-of-type > li { transform: translateX(calc(var(--button-left-right-size) * -34)); }
-body:has(#ctrl-lr-18:checked) header > ul:first-of-type > li { transform: translateX(calc(var(--button-left-right-size) * -36)); }
-body:has(#ctrl-lr-19:checked) header > ul:first-of-type > li { transform: translateX(calc(var(--button-left-right-size) * -38)); }
+    &:has(#ctrl-lr-1:checked) > ul:first-of-type > li{ transform: translateX(calc(var(--button-left-right-size) * -2)); };
+    &:has(#ctrl-lr-2:checked) > ul:first-of-type > li{ transform: translateX(calc(var(--button-left-right-size) * -4)); };
+    &:has(#ctrl-lr-3:checked) > ul:first-of-type > li{ transform: translateX(calc(var(--button-left-right-size) * -6)); };
+    &:has(#ctrl-lr-4:checked) > ul:first-of-type > li{ transform: translateX(calc(var(--button-left-right-size) * -8)); };
+    &:has(#ctrl-lr-5:checked) > ul:first-of-type > li{ transform: translateX(calc(var(--button-left-right-size) * -10)); }; 
+    &:has(#ctrl-lr-6:checked) > ul:first-of-type > li{ transform: translateX(calc(var(--button-left-right-size) * -12)); } ;
+    &:has(#ctrl-lr-7:checked) > ul:first-of-type > li{ transform: translateX(calc(var(--button-left-right-size) * -14)); } ;
+    &:has(#ctrl-lr-8:checked) > ul:first-of-type > li{ transform: translateX(calc(var(--button-left-right-size) * -16)); } ;
+    &:has(#ctrl-lr-9:checked) > ul:first-of-type > li{ transform: translateX(calc(var(--button-left-right-size) * -18)); } ;
+    &:has(#ctrl-lr-10:checked) > ul:first-of-type > li{ transform: translateX(calc(var(--button-left-right-size) * -20)); };
+    &:has(#ctrl-lr-11:checked) > ul:first-of-type > li{ transform: translateX(calc(var(--button-left-right-size) * -22)); };
+    &:has(#ctrl-lr-12:checked) > ul:first-of-type > li{ transform: translateX(calc(var(--button-left-right-size) * -24)); };
+    &:has(#ctrl-lr-13:checked) > ul:first-of-type > li{ transform: translateX(calc(var(--button-left-right-size) * -26)); };
+    &:has(#ctrl-lr-14:checked) > ul:first-of-type > li{ transform: translateX(calc(var(--button-left-right-size) * -28)); };
+    &:has(#ctrl-lr-15:checked) > ul:first-of-type > li{ transform: translateX(calc(var(--button-left-right-size) * -30)); };
+    &:has(#ctrl-lr-16:checked) > ul:first-of-type > li{ transform: translateX(calc(var(--button-left-right-size) * -32)); };
+    &:has(#ctrl-lr-17:checked) > ul:first-of-type > li{ transform: translateX(calc(var(--button-left-right-size) * -34)); };
+    &:has(#ctrl-lr-18:checked) > ul:first-of-type > li{ transform: translateX(calc(var(--button-left-right-size) * -36)); };
+    &:has(#ctrl-lr-19:checked) > ul:first-of-type > li{ transform: translateX(calc(var(--button-left-right-size) * -38)); };
+}
 
 body:has(#ctrl-lr-1:not(:checked)) header > ul:first-of-type::before{ background-color: #999;}
 body:has(#ctrl-lr-19:checked) header > ul:first-of-type::after { background-color: #999;}
@@ -416,6 +424,11 @@ header{
 
   input[type="checkbox"] {
         display: none;
+    }
+
+    img:hover{
+        rotate: 360deg;
+        transition: 1s;
     }
   
 }
