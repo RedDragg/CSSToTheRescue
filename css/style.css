@@ -110,9 +110,9 @@ main {
   &:before {
     content: "";
     position: absolute;
-    top: calc(calc(var(--size) / 1.0585 + 15%) + var(--height));
+    top: calc(calc(var(--size) / 1.0585 + 12%) + var(--height));
     left: calc(var(--size) / 2.89);
-    height: calc(var(--size) / 6);
+    height: calc(var(--size) / 5);
     width: calc(var(--size) / 3.15);
     background-color: transparent;
     background-image: 
