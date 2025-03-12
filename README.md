@@ -49,3 +49,9 @@ https://www.youtube.com/watch?v=e6jnl3iAezM
 
 Week 2:
 In week 2 heb ik gradients onderzocht en ermee geëxperimenteerd. Het is mij gelukt om de luchtballon met gradients te maken en vervolgens heb ik het mandje en de zakjes gemaakt in aparte li's
+
+https://cssgradient.io/blog/gradient-patterns/
+https://codepen.io/CoryMaklin/pen/wXRRye - rising sun
+https://codepen.io/billyysea/pen/nLroLY?editors=1100 - sky gradients
+https://codepen.io/agathaco/pen/rpZoYd?editors=0100 - trees
+https://codepen.io/jonslater204/pen/LYWQbMa - space invaders
