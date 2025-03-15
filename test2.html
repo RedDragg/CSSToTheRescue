@@ -101,9 +101,33 @@
             top: 10vmin;
             left: 10vmin;
         }
+        .test{
+            position: absolute;
+            margin: auto;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 100px 300px 100px;
+            border-color: transparent transparent #103a48 transparent;
+
+            &::before{
+                content: "";
+                position: absolute;
+                margin: auto;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 300px 0 0 100px;
+                border-color: transparent transparent transparent #c9e3eb;
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="test"></div>
     <div class="box"></div>
     <div class="container">
         <!-- Checkboxen voor de posities -->
