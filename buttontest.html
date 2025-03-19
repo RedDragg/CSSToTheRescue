@@ -5,91 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Blinking Divs</title>
     <style>
-        ul {
-            list-style-type: none;
-        }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #101010;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+}
 
-        li {
-            display: inline-block;
-            margin-right: 10px;
-        }
+.wave-text span {
+    display: inline-block;
+    font-size: 4rem;
+    animation: wave 2s ease-in-out infinite;
+}
 
-        div {
-            width: 100px;
-            height: 100px;
-            background-color: lightblue;
-            transition: all 0.3s ease;
-        }
+.wave-text span:nth-child(n) {
+    animation-delay: calc(0.2s * (var(--i) - 1));
+}
 
-        /* Radiobuttons verborgen maken */
-        input[type="radio"] {
-            display: none;
-        }
+.wave-text span:nth-child(1) { --i: 1; }
+.wave-text span:nth-child(2) { --i: 2; }
+.wave-text span:nth-child(3) { --i: 3; }
+.wave-text span:nth-child(4) { --i: 4; }
+.wave-text span:nth-child(5) { --i: 5; }
+.wave-text span:nth-child(6) { --i: 6; }
+.wave-text span:nth-child(7) { --i: 7; }
+.wave-text span:nth-child(8) { --i: 8; }
+.wave-text span:nth-child(9) { --i: 9; }
+.wave-text span:nth-child(10) { --i: 10; }
 
-        /* Animatie voor het blinken effect */
-        @keyframes blink {
-            0% {
-                background-color: lightblue;
-            }
-            50% {
-                background-color: yellow;
-            }
-            100% {
-                background-color: lightblue;
-            }
-        }
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
 
-        /* Blink-effect voor div's wanneer de bijbehorende radio is geselecteerd */
-        #ctrl-tb-1:checked ~ ul li:nth-child(1) div {
-            animation: blink 1s infinite;
-        }
 
-        #ctrl-tb-2:checked ~ ul li:nth-child(2) div {
-            animation: blink 1s infinite;
-        }
-
-        /* Alle div's beginnen zonder animatie */
-        ul li div {
-            animation: none;
-        }
     </style>
 </head>
 <body>
 
-<ul>
-    <li><div></div></li>
-    <li><div></div></li>
-    <li>
-        <!-- De radio-knoppen worden verborgen en hebben een unieke ID voor elk label -->
-        <input type="radio" id="ctrl-tb-1" name="buttons">
-        <input type="radio" id="ctrl-tb-2" name="buttons">
-        <input type="radio" id="ctrl-tb-3" name="buttons">
-        <input type="radio" id="ctrl-tb-4" name="buttons">
-        <input type="radio" id="ctrl-tb-5" name="buttons">
-        <input type="radio" id="ctrl-tb-6" name="buttons">
-        <input type="radio" id="ctrl-tb-7" name="buttons">
-        <input type="radio" id="ctrl-tb-8" name="buttons">
-        <input type="radio" id="ctrl-tb-9" name="buttons">
-        <input type="radio" id="ctrl-tb-10" name="buttons">
-        <input type="radio" id="ctrl-tb-11" name="buttons">
-        <input type="radio" id="ctrl-tb-12" name="buttons">
-    </li>
-    <li>
-        <!-- Labels voor de knoppen -->
-        <label for="ctrl-tb-1">Button 1</label>
-        <label for="ctrl-tb-2">Button 2</label>
-        <label for="ctrl-tb-3">Button 3</label>
-        <label for="ctrl-tb-4">Button 4</label>
-        <label for="ctrl-tb-5">Button 5</label>
-        <label for="ctrl-tb-6">Button 6</label>
-        <label for="ctrl-tb-7">Button 7</label>
-        <label for="ctrl-tb-8">Button 8</label>
-        <label for="ctrl-tb-9">Button 9</label>
-        <label for="ctrl-tb-10">Button 10</label>
-        <label for="ctrl-tb-11">Button 11</label>
-        <label for="ctrl-tb-12">Button 12</label>
-    </li>
-</ul>
-
+    <div class="wave-container">
+        <h1 class="wave-text">
+                <span>B</span>
+                <span>A</span>
+                <span>L</span>
+                <span>L</span>
+                <span>O</span>
+                <span>O</span>
+                <span>N</span>
+                <span>S</span>
+                <span>M</span>
+                <span>R</span>              
+        </h1>
+    </div>
+    
 </body>
 </html>
