@@ -49,7 +49,7 @@ https://www.youtube.com/watch?v=e6jnl3iAezM
 
 # Week 2: 
 
-In week 2 heb ik gradients onderzocht en ermee geëxperimenteerd. Het is mij gelukt om de luchtballon met gradients te maken en vervolgens heb ik het mandje en de zakjes gemaakt in aparte li's voor een betere nesting.
+In week 2 heb ik gradients onderzocht en ermee geëxperimenteerd. Het is mij gelukt om de luchtballon met gradients te maken en vervolgens heb ik het mandje en de zakjes gemaakt in aparte li's voor een betere nesting. voor het maken van de balloon heb ik inspiratie gehaald uit de volgende website: https://www.pyxofy.com/css-art-hot-air-balloon/
 
 <img src="readmeimg/week2.png" alt="week2 ballon" width="200">
 
@@ -92,7 +92,7 @@ Dit is de css waardoor de bomen een verschillende height krijgen.
   /* etc */
 ```
 
-De achtergrond nog steeds beetje kalig dus heb ik een berg in gedachte met een animatie. Wanneer er een berg ontstaat, ontstaat dit natuurlijk uit een "aardbeving"/aardverschuiving.
+De achtergrond nog steeds beetje kalig dus heb ik een berg in gedachte met een animatie. Wanneer er een berg ontstaat, ontstaat dit natuurlijk uit een "aardbeving"/aardverschuiving. de shake animation heb ik van de volgende website: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_image_shake
 
 <img src="readmeimg/mountain.gif">
 
@@ -189,35 +189,86 @@ De moon krijgt een gelatine jiggle animation https://codepen.io/nelledejones/pen
 }
 ```
 
-
-<img src="readmeimg/controlpanel-scale-css.gif">
-
 Daarna heb ik de buttons toegevoegd in de panel en er een design aan gegeven zodat ze meer op een button lijken:
 Scaling: ik heb de grootte aangepast. Ook is er een kleine detail dat wanneer je de kleinste formaat bent, je dan achter de andere ballonnen en boompjes bent.
 
-<img src="readmeimg/controlpanel-kleur-css.gif">
+<img src="readmeimg/controlpanel-scale-css.gif">
 
 De andere buttons veranderen de kleur van de ballon en nu ook de kleur van de controlpanel.
 
-<img src="readmeimg/mntn-redo-panel.gif">
+<img src="readmeimg/controlpanel-kleur-css.gif">
+
 
 De berg heeft nu een eigen icoontje om de animatie te activeren en een rewind button waardoor de html pagina zich opnieuw laad.
 
-
-<img src="readmeimg/op-en-neer.gif">
+<img src="readmeimg/mntn-redo-panel.gif">
 
 Vervolgens heb ik gespeeld met de controls. Nu kan je zien hoe hoog je gaat en wanneer je op de grond valt krijg je een bounce effectje en wanneer je vliegt met de ballon, dan zie je dat het niet teleporteert maar echt vliegt.
 
-https://cssgradient.io/blog/gradient-patterns/
+<img src="readmeimg/op-en-neer.gif">
 
+
+Hiervoor heb ik de volgende twee websites gebruikt: https://developer.chrome.com/docs/css-ui/css-linear-easing-function?hl=nl, https://matthewlein.com/tools/ceaser.
+
+flying animation
+```css
+transition: all 150ms cubic-bezier(0.595, 0.975, 0.28, 0.005); /* custom */
+```
+
+bounce animation
+```css
+  transition: all 500ms
+    linear(
+      /* Start to 1st bounce */ 0,
+      0.004,
+      0.016,
+      0.035,
+      0.063 9.1%,
+      0.141,
+      0.25,
+      0.391,
+      0.563,
+      0.765,
+      1,
+      /* 1st to 2nd bounce */ 0.891,
+      0.813 45.5%,
+      0.785,
+      0.766,
+      0.754,
+      0.75,
+      0.754,
+      0.766,
+      0.785,
+      0.813 63.6%,
+      0.891,
+      1 72.7%,
+      /* 2nd to 3rd bounce */ 0.973,
+      0.953,
+      0.941,
+      0.938,
+      0.941,
+      0.953,
+      0.973,
+      1,
+      /* 3rd bounce to end */ 0.988,
+      0.984,
+      0.988,
+      1
+    ); /* custom */
+```
+The end
+
+<img src="readmeimg/loonsworld.gif"> 
+
+
+
+https://www.pyxofy.com/css-art-hot-air-balloon/ - hot air balloon made with css
 https://codepen.io/CoryMaklin/pen/wXRRye - rising sun
-
 https://codepen.io/billyysea/pen/nLroLY?editors=1100 - sky gradients
-
 https://codepen.io/agathaco/pen/rpZoYd?editors=0100 - trees
-
 https://codepen.io/jonslater204/pen/LYWQbMa - space invaders
-
 https://codepen.io/nelledejones/pen/gOOPWrK?editors=0100 - cool animations
-
-https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp
+https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp - hide scrollbar
+https://developer.chrome.com/docs/css-ui/css-linear-easing-function?hl=nl - bounce animation
+https://matthewlein.com/tools/ceaser - vlieg animation
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_image_shake - shake animation
