@@ -56,3 +56,4 @@ https://codepen.io/billyysea/pen/nLroLY?editors=1100 - sky gradients
 https://codepen.io/agathaco/pen/rpZoYd?editors=0100 - trees
 https://codepen.io/jonslater204/pen/LYWQbMa - space invaders
 https://codepen.io/nelledejones/pen/gOOPWrK?editors=0100 - cool animations
+https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp
