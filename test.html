@@ -2,140 +2,14 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slider met Navigatie</title>
-    <style>
-        body {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
-
-        .container {
-            position: absolute;
-            width: 100%;
-            height: 16vmin;
-            left: 0;
-            bottom: 0;
-            background: #999;
-        }
-
-        #move {
-            position: relative;
-            width: 30vmin;
-            height: 10vmin;
-            left: 20vmin;
-            top: 3vmin;
-            overflow: hidden;
-        }
-
-        #move div {
-            position: absolute;
-            width: calc(10vmin * 46);
-            height: 10vmin;
-            display: flex;
-            transition: transform 0.5s ease;
-            z-index: 1;
-            gap: 10vmin;
-        }
-
-        #move::before, #move::after {
-            content: "";
-            position: absolute;
-            width: 10vmin;
-            height: 10vmin;
-            background: white;
-            border-radius: 50%;
-            box-shadow: inset 0 0 0 0.5vmin white, inset 0 0 0.5vmin 1vmin #999;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        #move::after{
-            left: 20vmin;
-        }
-
-
-
-        #move label {
-            width: 10vmin;
-            background-color: red;
-            height: 10vmin;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
-        input[type="checkbox"] {
-            display: none;
-        }
-
-        /* Positiecontrole met :has() */
-        body:has(#pos1:checked) #move div { transform: translateX(0); }
-        body:has(#pos2:checked) #move div { transform: translateX(-20vmin); }
-        body:has(#pos3:checked) #move div { transform: translateX(-40vmin); }
-        body:has(#pos4:checked) #move div { transform: translateX(-60vmin); }
-        body:has(#pos5:checked) #move div { transform: translateX(-80vmin); }
-        body:has(#pos6:checked) #move div { transform: translateX(-100vmin); }
-        body:has(#pos7:checked) #move div { transform: translateX(-120vmin); }
-        body:has(#pos8:checked) #move div { transform: translateX(-140vmin); }
-        body:has(#pos9:checked) #move div { transform: translateX(-160vmin); }
-        body:has(#pos10:checked) #move div { transform: translateX(-180vmin); }
-        
-
-    
-        body:has(#pos1:checked) .box{ left: 10vmin}
-        body:has(#pos2:checked) .box{ left: 15vmin}
-        body:has(#pos3:checked) .box{ left: 20vmin}
-        body:has(#pos4:checked) .box{ left: 25vmin}
-        body:has(#pos5:checked) .box{ left: 30vmin}
-        body:has(#pos6:checked) .box{ left: 35vmin}
-        body:has(#pos7:checked) .box{ left: 40vmin}
-        body:has(#pos8:checked) .box{ left: 45vmin}
-        
-
-        .box{
-            background-color: red;
-            width: 100px;
-            height: 100px;
-            position: absolute;
-            top: 10vmin;
-            left: 10vmin;
-        }
+    <title>Muziek Afspelen met Checkbox (Eén Keer)</title>
+    <style> 
     </style>
 </head>
 <body>
-    <div class="box"></div>
-    <div class="container">
-        <!-- Checkboxen voor de posities -->
-        <input type="checkbox" id="pos1" hidden>
-        <input type="checkbox" id="pos2" hidden>
-        <input type="checkbox" id="pos3" hidden>
-        <input type="checkbox" id="pos4" hidden>
-        <input type="checkbox" id="pos5" hidden>
-        <input type="checkbox" id="pos6" hidden>
-        <input type="checkbox" id="pos7" hidden>
-        <input type="checkbox" id="pos8" hidden>
-        <input type="checkbox" id="pos9" hidden>
-        <input type="checkbox" id="pos10" hidden>
-
-        <!-- De slider met labels -->
-        <div id="move">
-            <div>
-                <label for="pos1" class="step">1</label>
-                <label for="pos2" class="step">2</label>
-                <label for="pos3" class="step">3</label>
-                <label for="pos4" class="step">4</label>
-                <label for="pos5" class="step">5</label>
-                <label for="pos6" class="step">6</label>
-                <label for="pos7" class="step">7</label>
-                <label for="pos8" class="step">8</label>
-                <label for="pos9" class="step">9</label>
-                <label for="pos10" class="step">10</label>
-            </div>
-        </div>
-    </div>
+    <audio controls>
+        <source src="audio/cloudy-sky.mp3" type="audio/mpeg">
+        Je browser ondersteunt geen audio-element.
+    </audio>
 </body>
 </html>

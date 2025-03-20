@@ -28,13 +28,14 @@ li {
   --size: clamp(5rem, 15vw, 7rem);
   --height: 0vh;
   --hoogte: 200px;
-  --balloon-color: #d90000;
-  --balloon-color-2: #00a6d9;
-  --balloon-color-3: #50d900;
+  --balloon-color: #D92000;
+  --balloon-color-2: #12d900;
+  --balloon-color-3: #0089d9;
   --balloon-color-secundaire: #fff;
   --button-left-right-size: clamp(1.5em, 5vw, 2.25em);
   --daynight-time: 5s;
   --size-moon-sun: 70px;
+  --border-main: 2px;
 }
 
 body {
@@ -46,6 +47,14 @@ body {
   /* background-image: linear-gradient(to bottom, #b7eaff 0%,#94dfff 100%); */
   /* background: linear-gradient(to bottom, #071B26 0%,#071B26 30%,#8A3B12 80%,#240E03 100%) */
   /* animation: sky 20s linear infinite; */
+
+  audio{
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    width: clamp(7rem, 15vw, 15rem);
+    opacity: 0.5;
+  }
 }
 
 body:has(#kleur-ballon-2:checked){
@@ -73,17 +82,33 @@ body:has(#kleur-ballon-3:checked){
     pointer-events: auto;
   }
 
+  body:has(#daynight:checked) main > ul:nth-of-type(2){
+    --wolk-color:#acacac;
+  }
+
+  body:has(#welcome:checked) main ul:nth-of-type(3) {
+    --tree-1-height: 12em;
+    --tree-2-height:9em;
+  }
+
+  body:has(#welcome:checked) main > ul:first-of-type{
+    bottom: calc(var(--size) / 2);
+    left: 0;
+    animation: none;
+  }
+
 
 main {
+
   min-width: 100%;
   height: 73vh;
   display: grid;
   place-items: center;
   overflow: hidden;
   position: relative;
-  border-top: solid 8px black;
-  border-right: 8px solid black;
-  border-left: solid 8px black;
+  border-top: solid var(--border-main) black;
+  border-right: var(--border-main) solid black;
+  border-left: solid var(--border-main) black;
   z-index: -3;
   transition: box-shadow 3s;
   box-shadow: inset 0 0 0 400px black;
@@ -92,6 +117,7 @@ main {
 
   >div{
     transition: 3s;
+    z-index: 3;
     h1{
       animation: --scale 2s linear forwards;
     }
@@ -100,12 +126,12 @@ main {
       display: inline-block;
       font-size: clamp(1rem, 5vw, 5rem);
       transform: scale(0);
-      animation: --wave 2s ease-in-out infinite;
-
+      animation: --wave 2s ease-in-out infinite, --rainbowcolor 1.5s linear infinite;
+      text-shadow:0px 0px 0px #fff,0px 0px 0px #614ad3;
   }
   
   h1 span:nth-child(n) {
-      animation-delay: calc(.2s * (var(--index-h1) - 1));
+      animation-delay: calc(.4s * (var(--index-h1) - 1));
   }
   
   h1 span:nth-child(1) { --index-h1: 1; }
@@ -121,7 +147,9 @@ main {
   }
 
 
-
+  >section{
+    z-index: -2;
+  }
   section:nth-of-type(1) {
     background: #f1c40f;
     box-shadow: 0px 0px 21px 0px #f1c40f;
@@ -151,12 +179,13 @@ main {
     transform: translate(0vw, -32vh);
   }
 
-  ul:first-of-type {
+  > ul:first-of-type {
     position: absolute;
-    bottom: calc(var(--size) / 2);
-    left: 0;
+    bottom: 40%;
+    left: 47%;
     z-index: 1;
     transition: all 150ms cubic-bezier(0.595, 0.975, 0.28, 0.005); /* custom */
+    animation: --wave 2s ease-in-out infinite;
 
     /* ballon, ballononderkant en touwen styling */
     li:nth-child(1) {
@@ -302,6 +331,9 @@ main {
       z-index: 3;
       --border-radius-mandje: 20%;
       aspect-ratio: 1;
+      --color-mandje: #fddf97;
+      --color-mandje-secundaire:#e0be84;
+      --color-mandje-streepjes: hsl(42, 96%, 50%) ;
 
       position: absolute;
       height: calc(var(--size) / 4);
@@ -312,21 +344,21 @@ main {
       border-radius: var(--border-radius-mandje);
 
       background-image: linear-gradient(
-          #fddf97 50%,
+          var(--color-mandje) 50%,
           transparent 0 90%,
-          #fddf97 0
+          var(--color-mandje) 0
         ),
         linear-gradient(
           90deg,
-          #fddf97 15%,
-          hsl(42, 96%, 50%) 0 28%,
-          #fddf97 0 44%,
-          hsl(42, 96%, 50%) 0 57%,
-          #fddf97 0 74%,
-          hsl(42, 96%, 50%) 0 87%,
-          #fddf97 0
+          var(--color-mandje) 15%,
+          var(--color-mandje-streepjes) 0 28%,
+          var(--color-mandje) 0 44%,
+          var(--color-mandje-streepjes) 0 57%,
+          var(--color-mandje) 0 74%,
+          var(--color-mandje-streepjes) 0 87%,
+          var(--color-mandje) 0
         ),
-        radial-gradient(circle at top left, #fddf97, #e0be84);
+        radial-gradient(circle at top left, var(--color-mandje), var(--color-mandje-secundaire));
       /* streepjes styling */
       &::after {
         content: "";
@@ -335,7 +367,7 @@ main {
         width: calc(var(--size) / 2.8);
         transform: translate(calc(var(--size) - 283%), 0);
         border-radius: 6px 6px;
-        background: radial-gradient(circle at top left, #fddf97, #e0be84);
+        background: radial-gradient(circle at top left, var(--color-mandje), var(--color-mandje-secundaire));
       }
     }
     /* zakjes stylng */
@@ -358,7 +390,7 @@ main {
         width: calc(var(--size) / 17);
         background: var(--balloon-color);
         border-radius: 50vw 0px 0px 20vw;
-        transform: rotate(-44deg) translate(-319%, 84%);
+        transform: rotate(-44deg) translate(-310%, 84%);
       }
 
       &::before {
@@ -393,6 +425,8 @@ main {
     top: 2vh;
     --wolk-color: #fff;
     --wolk-size: 1;
+    --wolk-transition: 7s;
+
 
     li {
       position: absolute;
@@ -406,6 +440,7 @@ main {
       left: -77vw;
       top: calc(var(--index-wolk) * 1.6em);
       z-index: 2;
+      transition: var(--wolk-transition);
 
       &::after {
         content: "";
@@ -417,6 +452,7 @@ main {
         /* background-image: radial-gradient(circle at 41% 78%, transparent 69%, #fff 0); */
         right: 10%;
         bottom: 0;
+        transition: var(--wolk-transition);
       }
 
       &::before {
@@ -429,6 +465,7 @@ main {
         /* background-image: radial-gradient(circle at 35% 22%, #fff 9%, transparent 0); */
         bottom: 0;
         left: 10%;
+        transition: var(--wolk-transition);
       }
     }
 
@@ -495,14 +532,17 @@ ul:nth-of-type(3) {
   width: 100%;
   container-type: inline-size;
   container-name: --trees;
+  --tree-1-height: 0em;
+  --tree-2-height: 0em;
 
   li {
     position: absolute;
     width: clamp(0.4em, 4vw, 0.6em);
-    height: clamp(2em, calc(var(--index-stam) * 1.5vw), 12em);
+    height: clamp(2em, calc(var(--index-stam) * 1.5vw), var(--tree-1-height));
     background: #9d5d5d;
     bottom: 0;
     left: calc(var(--index-stam) * 11%);
+    transition: 3s;
     /* boom 1 styling */
     div {
       position: absolute;
@@ -521,7 +561,7 @@ ul:nth-of-type(3) {
   }
 
   li:nth-of-type(2n + 4) {
-    height: clamp(2em, calc(var(--index-stam) * 1vw), 12em);
+    height: clamp(2em, calc(var(--index-stam) * 1vw), var(--tree-1-height));
   }
   > li:nth-of-type(1) {
     --index-stam: 1;
@@ -564,7 +604,7 @@ ul:nth-of-type(3) {
   li:nth-of-type(n + 9) {
     left: calc(var(--index-stam) * 9.2%);
     z-index: 100;
-    height: clamp(5em, calc(var(--index-stam) * 1.5vw), 9em);
+    height: clamp(5em, calc(var(--index-stam) * 1.5vw), var(--tree-2-height));
 
     /* boom 2 styling */
     article {
@@ -1182,9 +1222,9 @@ footer {
     #9f6942 80% 0
   );
   position: relative;
-  border-left: 8px solid black;
-  border-bottom: 8px solid black;
-  border-right: 8px solid black;
+  border-left: var(--border-main) solid black;
+  border-bottom: var(--border-main) solid black;
+  border-right: var(--border-main) solid black;
   align-self: flex-start;
   /* transform: translateY(2vh); */
 
@@ -1969,11 +2009,12 @@ body:has(#kleur-ballon-3:checked) main > ul:first-of-type {
 }
 
 body:has(#scale-balloon-sm:checked) main > ul:first-of-type {
-  --size: clamp(3rem, 10vw, 5rem);
+  --size: clamp(2rem, 10vw, 3rem);
+  z-index: 0;
 }
 
 body:has(#scale-balloon-l:checked) main > ul:first-of-type {
-  --size: clamp(7rem, 20vw, 9rem);
+  --size: clamp(11rem, 20vw, 15rem);
 }
 
 body:has(#daynight:not(:checked)) main > p {
@@ -2012,6 +2053,23 @@ body:has(#daynight:checked) main > ul:nth-of-type(1) > li:nth-of-type(4) {
   transition: box-shadow 10s;
   box-shadow: 1px 1px 0 1px #ffc11f inset, 2px 2px 0 2px #fe650c inset,
     0 0 8px 3px #f33c04;
+}
+
+@keyframes --rainbowcolor {
+  0%{
+    color: red;
+  }
+  25%{
+    color: blue;
+  }
+
+  50%{
+    color: green;
+  }
+
+  75%{
+    color: yellow;
+  }
 }
 
 @keyframes --scale {
@@ -2092,4 +2150,300 @@ body:has(#mountain:not(:checked)) main > ul:nth-of-type(5) > li {
 
 body:has(#mountain:checked) header > label:nth-of-type(2) {
   background: green;
+}
+
+@keyframes --loons{
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(140vw);
+  }
+}
+
+@keyframes --loons-r{
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-140vw);
+  }
+}
+
+
+main > ul:nth-of-type(6){
+  li{
+
+    &:first-child{
+      --size: clamp(1.5rem, 15vw, 2.5rem);
+      --balloon-color:#98d900;
+      --loon-height:90%;
+      ul{
+        z-index: -1;
+      }
+    }
+
+    &:nth-of-type(2){
+      >ul{--loon-height:70%;
+        animation: --loons 100s linear infinite;
+        animation-delay: 30s;
+        
+        li{--balloon-color:#00a6d9;--size: clamp(1.5rem, 15vw, 3.5rem);}}
+    }
+
+    
+    &:nth-of-type(3){
+      >ul{--loon-height:75%;
+        animation: --loons-r 100s linear infinite;
+        animation-delay: 20s;
+        
+        left: auto;
+        right: -12vw;
+
+        li{--balloon-color:#d9006d;--size: clamp(1.5rem, 15vw, 3.5rem);}}
+    }
+
+    ul {
+      position: absolute;
+      bottom: var(--loon-height);
+      left: -12vw;
+      z-index: 0;
+      transition: 3s; 
+      animation: --wave 2s ease-in-out infinite, --loons 82s linear infinite;
+
+  
+      /* ballon, ballononderkant en touwen styling */
+      li:nth-child(1) {
+        position: relative;
+        height: calc(var(--size) + var(--height));
+        width: var(--size);
+        border-radius: 50%;
+        aspect-ratio: 1;
+        background-color: blue;
+        background-repeat: no-repeat;
+  
+        background-image: linear-gradient(
+            90deg,
+            transparent 49%,
+            var(--balloon-color) 0 52%,
+            transparent 0
+          ),
+          radial-gradient(
+            at right center,
+            var(--balloon-color) 71%,
+            transparent 71.1%
+          ),
+          radial-gradient(
+            at right center,
+            var(--balloon-color-secundaire) 71%,
+            transparent 71.1%
+          ),
+          radial-gradient(
+            at right center,
+            var(--balloon-color) 71%,
+            transparent 71.1%
+          ),
+          radial-gradient(
+            at right center,
+            var(--balloon-color-secundaire) 71%,
+            transparent 71.1%
+          ),
+          radial-gradient(
+            at right center,
+            var(--balloon-color) 71%,
+            transparent 71.1%
+          ),
+          radial-gradient(
+            at left center,
+            var(--balloon-color) 71%,
+            transparent 71.1%
+          ),
+          radial-gradient(
+            at left center,
+            var(--balloon-color-secundaire) 71%,
+            transparent 71.1%
+          ),
+          radial-gradient(
+            at left center,
+            var(--balloon-color) 71%,
+            transparent 71.1%
+          ),
+          radial-gradient(
+            at left center,
+            var(--balloon-color-secundaire) 70%,
+            transparent 70.1%
+          ),
+          radial-gradient(
+            at left center,
+            var(--balloon-color) 71%,
+            transparent 71.1%
+          );
+  
+        background-size: 100% 100%, 13% 100%, 25% 100%, 37% 100%, 48% 100%,
+          61% 100%, 13% 100%, 25% 100%, 37% 100%, 44.35% 100%, 61% 100%;
+  
+        background-position: 0 0, calc(100% - var(--size) + 58%) 0em,
+          calc(100% - var(--size) + 68%) 0em, calc(100% - var(--size) + 81%) 0em,
+          calc(100% - var(--size) + 98%) 0em, calc(100% - var(--size) + 130%) 0em,
+          calc(100% - var(--size) + 73%) 0em, calc(100% - var(--size) + 101%) 0em,
+          calc(100% - var(--size) + 138%) 0em, calc(100% - var(--size) + 175%) 0em,
+          calc(100% - var(--size) + 284%) 0em;
+  
+        /* onderkant ballon  styling */
+        &:after {
+          content: "";
+          position: absolute;
+          top: calc(calc(var(--size) / 1.055) + var(--height));
+          left: calc(var(--size) / 3.3);
+          height: calc(var(--size) / 6);
+          width: calc(var(--size) / 2.5);
+          background-color: blue;
+          clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
+  
+          mask-image: url(../onderkantluchtballon.png);
+          mask-size: cover;
+          mask-repeat: no-repeat;
+          mask-position: center;
+          mask-mode: luminance;
+  
+          background-image: linear-gradient(
+            90deg,
+            var(--balloon-color) 5%,
+            var(--balloon-color-secundaire) 0 9.5%,
+            var(--balloon-color) 0 23.4%,
+            var(--balloon-color-secundaire) 0 35.6%,
+            var(--balloon-color) 0 65.3%,
+            var(--balloon-color-secundaire) 0 79.4%,
+            var(--balloon-color) 0 91.2%,
+            var(--balloon-color-secundaire) 0 97%,
+            var(--balloon-color) 0
+          );
+        }
+  
+        /* touwen styling */
+        &:before {
+          content: "";
+          position: absolute;
+          top: calc(calc(var(--size) / 1.0585 + 12%) + var(--height));
+          left: calc(var(--size) / 2.89);
+          height: calc(var(--size) / 5);
+          width: calc(var(--size) / 3.15);
+          background-color: transparent;
+          background-image: linear-gradient(
+              90deg,
+              transparent 20%,
+              black 0 25%,
+              transparent 25%
+            ),
+            linear-gradient(
+              84deg,
+              transparent 5%,
+              black 5.8% 9.2%,
+              transparent 10%
+            ),
+            linear-gradient(90deg, transparent 70%, black 0 75%, transparent 75%),
+            linear-gradient(
+              96deg,
+              transparent 90%,
+              black 90.8% 94.2%,
+              transparent 95%
+            );
+        }
+      }
+  
+      /* mandje styling */
+      li:nth-child(2) {
+        z-index: 3;
+        --border-radius-mandje: 20%;
+        aspect-ratio: 1;
+        --color-mandje: #fddf97;
+        --color-mandje-secundaire:#e0be84;
+        --color-mandje-streepjes: hsl(42, 96%, 50%) ;
+  
+        position: absolute;
+        height: calc(var(--size) / 4);
+        width: calc(var(--size) / 3);
+  
+        transform: translate(100%, calc(var(--size) - 297%));
+  
+        border-radius: var(--border-radius-mandje);
+  
+        background-image: linear-gradient(
+            var(--color-mandje) 50%,
+            transparent 0 90%,
+            var(--color-mandje) 0
+          ),
+          linear-gradient(
+            90deg,
+            var(--color-mandje) 15%,
+            var(--color-mandje-streepjes) 0 28%,
+            var(--color-mandje) 0 44%,
+            var(--color-mandje-streepjes) 0 57%,
+            var(--color-mandje) 0 74%,
+            var(--color-mandje-streepjes) 0 87%,
+            var(--color-mandje) 0
+          ),
+          radial-gradient(circle at top left, var(--color-mandje), var(--color-mandje-secundaire));
+        /* streepjes styling */
+        &::after {
+          content: "";
+          position: absolute;
+          height: calc(var(--size) / 12);
+          width: calc(var(--size) / 2.8);
+          transform: translate(calc(var(--size) - 283%), 0);
+          border-radius: 6px 6px;
+          background: radial-gradient(circle at top left, var(--color-mandje), var(--color-mandje-secundaire));
+        }
+      }
+      /* zakjes stylng */
+      li:nth-of-type(3) {
+        z-index: 4;
+        position: absolute;
+        height: calc(var(--size) / 10);
+        width: calc(var(--size) / 10);
+        background: var(--balloon-color);
+        border-top-left-radius: 30%;
+        border-top-right-radius: 150%;
+        border-bottom-right-radius: 150%;
+        border-bottom-left-radius: 150%;
+        transform: rotate(45deg) translate(calc(52.3% * 10), calc(-11.5% * 10));
+  
+        &::after {
+          content: "";
+          position: absolute;
+          height: calc(var(--size) / 10);
+          width: calc(var(--size) / 17);
+          background: var(--balloon-color);
+          border-radius: 50vw 0px 0px 20vw;
+          transform: rotate(-44deg) translate(-310%, 84%);
+        }
+  
+        &::before {
+          content: "";
+          position: absolute;
+          height: calc(var(--size) / 10);
+          width: calc(var(--size) / 17);
+          background: var(--balloon-color);
+          border-radius: 0 50vw 20vw 0;
+          transform: rotate(-46deg) translate(356%, 84%);
+        }
+      }
+  
+      li:nth-of-type(4) {
+        animation: --vuurtje 1s ease-in-out infinite;
+        z-index: 2;
+        position: absolute;
+        width: calc(var(--size) / 11);
+        height: calc(var(--size) / 11);
+        background-color: #f33c04;
+        border-top-left-radius: 30%;
+        border-top-right-radius: 150%;
+        border-bottom-right-radius: 150%;
+        border-bottom-left-radius: 150%;
+        transform: rotate(45deg) translate(518%, -189%);
+        box-shadow: 1px 1px 0 1px #ffc11f inset, 2px 2px 0 2px #fe650c inset;
+        transition: box-shadow 10s;
+      }
+    }
+  }
 }
