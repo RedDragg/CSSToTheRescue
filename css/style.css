@@ -53,7 +53,7 @@ body {
     left: 1rem;
     top: 1rem;
     width: clamp(7rem, 15vw, 15rem);
-    opacity: 0.5;
+    opacity: 0.4;
   }
 }
 
@@ -698,6 +698,12 @@ ul:nth-of-type(3) {
     --rabbit: #8f5615;
     animation-delay: 1s;
   }
+
+  ol:nth-of-type(3) {
+    left: 10%;
+    animation: --rabbit-lr 10s linear infinite;
+    --rabbit: #be5006;
+  }
 }
 
 p {
@@ -948,7 +954,25 @@ ul:nth-of-type(5) {
     }
   }
 }
+@keyframes --rabbit-lr{
+  0%, 100%{
+    transform: translateX(0px);
+  }
+  40% , 60%{
+    transform: translateX(50px);
+  }
+  29%, 41%{
+    transform: translateY(0px);
+  }
+  30%, 40%{
+    transform: translateX(50px);
+    transform: translateY(-25px);
+  }
+  20%, 70%{
+    transform: translateX(80px);
+  }
 
+}
 @keyframes --rabbit {
   0%,
   80%,
