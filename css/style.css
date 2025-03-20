@@ -2215,12 +2215,13 @@ main > ul:nth-of-type(6){
   li{
 
     &:first-child{
-      --size: clamp(1.5rem, 15vw, 2.5rem);
-      --balloon-color:#98d900;
-      --loon-height:90%;
-      ul{
+      >ul{
+        --size: clamp(1.5rem, 15vw, 2.5rem);
+        --balloon-color:#98d900;
+        --loon-height:90%;
         z-index: -1;
       }
+      
     }
 
     &:nth-of-type(2){
