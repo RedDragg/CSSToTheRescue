@@ -260,8 +260,38 @@ The end
 
 <img src="readmeimg/loonsworld.gif"> 
 
+# Conclusie
+In mijn avontuur naar loonsworld heb ik veel geleerd en ook veel geëxperimenteerd. 
+
+## Wat heb ik in mijn code gebruikt?
+1.  Geen classes, wel id's voor labels en inputs
+2.  display: Flex/ Grid
+3.  position: relative/absolute - left/top/right/bottom
+4.  ::before/::after - content=''
+5.  :has, :checked, :not, :hover
+6.  Custom Properties
+7.  Css nesting
+8.  calc()
+9.  Box-shadow/ inset
+10. gradients - linear/ radial
+11. transform: translate/ scale/ rotate
+12. @keyframes
+13. --index
+14. Mask
+15. @container
+
+## Watvoor tips heb ik?
+
+1. Je kan meerdere gradients gebruiken in de background/ background-image.
+2. Er kunnen ook 2 verschillende gradients of kleuren in de background en background-image.
+3. :has selector is heel krachtig en leuk. Tot nu toe heb ik alleen gewerkt met de :has op input:checked waardoor er een actie komt vanuit een klik. 
+4. Gebruik geen mask als je een box-shadow wil gebruiken voor een glow. De mask clipt ook de box-shadow.
+5. Er kunnen meerdere animaties toegepast worden op hetzelfde element.
+6. Kijk vooral op internet naar gradients voor kleur, bijvoorbeeld sky gradient colors of dirt gradient colors.
+7. 
 
 
+## Bronnenlijst
 https://www.pyxofy.com/css-art-hot-air-balloon/ - hot air balloon made with css
 https://codepen.io/CoryMaklin/pen/wXRRye - rising sun
 https://codepen.io/billyysea/pen/nLroLY?editors=1100 - sky gradients
