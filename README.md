@@ -256,12 +256,147 @@ bounce animation
       1
     ); /* custom */
 ```
-The end
+The end - om het volledig te maken heb ik een coole animatie voor de tekst gemaakt en de achtergrond zwart gemaakt met inset. Om het ook levendig te maken heb ik er ook extra ballonnen bij toegevoegd om de wereld wat levendiger te maken. Verder zie je ook dat de bomen van hoogte veranderen bij het starten van de wereld.
 
 <img src="readmeimg/loonsworld.gif"> 
 
+Om te beginnen wil ik de tekst bespreken. Inspiratie heb ik vanuit https://prismic.io/blog/css-text-animations voor de wavy text animation. Ze gebruiken een span voor elk letter in een h1 en dan geven ze een animation delay van .2s op elk span. Dit heb ik uitgebreid tot een formule dat er zo uitziet:
+
+```css
+    animation: --wave 2s ease-in-out infinite, --rainbowcolor 1.5s linear infinite;
+    animation-delay: calc(.4s * (var(--index-h1) - 1));
+
+```
+
+Voor elke span heb ik een index gegeven en de animation delay toegepast op elke span. Dit had dus ook effect op alle animations die je erin toepast. dus heb ik ook een kleuren animatie toegepast.
+
+voor de wavy text
+```css
+    @keyframes --wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    }
+```
+
+voor de color text
+```css
+
+    @keyframes --rainbowcolor {
+    0%{
+        color: red;
+    }
+    25%{
+        color: blue;
+    }
+
+    50%{
+        color: green;
+    }
+
+    75%{
+        color: yellow;
+    }
+    }
+```
+
+en dan krijg je dit: 
+
+<img src="readmeimg/loonsworld-text.gif">
+
+De balloon heeft ook een wave animation en ik heb het verplaatst naar het midden met transform translate.
+
+<img src="readmeimg/blon.gif">
+
+Verder zit er ook een start knop in en begint er een andere animatie. de tekst gaat weg, je ziet de achtergrond opkomen, de bomen krijgen een hoogte en de luchtballon gaat naar de linkerkant.
+
+<img src="readmeimg/start.gif"> 
+
+De zwarte achtergrond is gemaakt met inset zoals dit:
+
+```css
+  box-shadow: inset 0 0 0 400px black;
+
+  body:has(#welcome:checked) main{
+    box-shadow: inset 0 0 0 0 black;
+  }
+```
+
+de div waarin de h1 zit scaled weg:
+```css
+  body:has(#welcome:checked) main > div{
+    transform: scale(0);
+  }
+```
+
+Het balon geef ik zijn originele positie terug:
+```css
+  body:has(#welcome:checked) main > ul:first-of-type{
+    bottom: calc(var(--size) / 2);
+    left: 0;
+    animation: none;
+  }
+```
+
+En de bomen gaan van 0 height naar hun originele custom heights:
+
+```css
+  body:has(#welcome:checked) main ul:nth-of-type(3) {
+    --tree-1-height: 12em;
+    --tree-2-height:9em;
+  }
+```
+
+Alle labels zijn niet clickable zolang de start nog niet gechecked is:
+
+```css
+  label:not(:has(#welcome)){
+    pointer-events: none;
+  }
+
+    body:has(#welcome:checked) label:not(:has(#welcome)){
+    pointer-events: auto;
+  }
+```
+
+En als laatst zijn er nog 3 extra luchtballonnetjes om de wereld meer levendiger te maken. en een extra bunny met een andere animatie
+
+<img src="readmeimg/bloons.gif">
+
+<img src="readmeimg/bunny-extra.gif">
+
+```css
+@keyframes --rabbit-lr{
+  0%, 100%{
+    transform: translateX(0px);
+  }
+  40% , 60%{
+    transform: translateX(50px);
+  }
+  29%, 41%{
+    transform: translateY(0px);
+  }
+  30%, 40%{
+    transform: translateX(50px);
+    transform: translateY(-25px);
+  }
+  20%, 70%{
+    transform: translateX(80px);
+  }
+
+}
+```
+
+
 # Conclusie
-In mijn avontuur naar loonsworld heb ik veel geleerd en ook veel geëxperimenteerd. 
+Aan het begin van mijn avontuur naar Loonsworld had ik wilde ideeën, maar ik wist niet zeker of ik er ooit zou komen. De eerste twee weken waren nogal rustig en chill, en ik had nog geen besef van hoe kort de tijd eigenlijk zou zijn. Ik heb rustig aan gedaan met de ballon en veel geëxperimenteerd totdat het uiteindelijk lukte.
+
+Vanaf dat punt werd het makkelijker, maar ik had nog maar een week over. Met goede dutjes en nachten doorhalen heb ik uiteindelijk het eindresultaat bereikt waar ik naar verlangde. Toch voelt het alsof ik er nog meer uit had kunnen halen — en dat is waarschijnlijk ook zo.
+
+Toch ben ik wel heel trots op mezelf.
 
 ## Wat heb ik in mijn code gebruikt?
 1.  Geen classes, wel id's voor labels en inputs
@@ -282,13 +417,22 @@ In mijn avontuur naar loonsworld heb ik veel geleerd en ook veel geëxperimentee
 
 ## Watvoor tips heb ik?
 
-1. Je kan meerdere gradients gebruiken in de background/ background-image.
-2. Er kunnen ook 2 verschillende gradients of kleuren in de background en background-image.
-3. :has selector is heel krachtig en leuk. Tot nu toe heb ik alleen gewerkt met de :has op input:checked waardoor er een actie komt vanuit een klik. 
-4. Gebruik geen mask als je een box-shadow wil gebruiken voor een glow. De mask clipt ook de box-shadow.
-5. Er kunnen meerdere animaties toegepast worden op hetzelfde element.
-6. Kijk vooral op internet naar gradients voor kleur, bijvoorbeeld sky gradient colors of dirt gradient colors.
-7. 
+1. Je kunt meerdere gradients gebruiken in de background of background-image.
+2. Het is mogelijk om twee verschillende gradients of kleuren te combineren in de background en background-image.
+3. De :has-selector is erg krachtig en leuk om mee te werken. Tot nu toe heb ik vooral de combinatie :has met input:checked gebruikt om een actie te laten plaatsvinden bij een klik.
+4. Gebruik geen mask als je een box-shadow wilt gebruiken voor een glow-effect. Het mask knipt namelijk ook de box-shadow weg.
+5. Je kunt meerdere animaties toepassen op hetzelfde element.
+6. Zoek online naar inspiratie voor gradients, bijvoorbeeld "sky gradient colors" of "dirt gradient colors".
+7. Gebruik de inspectietool om je gradients aan te passen. Dit maakt het vinden van de juiste vorm veel makkelijker.
+8. Er zijn veel codepens waar je ideeën en inspiratie uit kunt halen.
+9. Online zijn er talloze leuke CSS-animaties te vinden.
+10. Coderen is net als begrijpend lezen: vertaal je code naar het Nederlands om het beter te begrijpen!
+
+## Wat heb ik bereikt?
+1. Betere begrip in code
+2. Vertrouwen dat ik kan coderen
+3. Kennis over een deel van css
+4. Coderen is ook leuk
 
 
 ## Bronnenlijst
@@ -302,3 +446,4 @@ https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp - hide scrollbar
 https://developer.chrome.com/docs/css-ui/css-linear-easing-function?hl=nl - bounce animation
 https://matthewlein.com/tools/ceaser - vlieg animation
 https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_image_shake - shake animation
+https://prismic.io/blog/css-text-animations - Text animations

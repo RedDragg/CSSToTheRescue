@@ -71,7 +71,6 @@ body:has(#kleur-ballon-3:checked){
   body:has(#welcome:checked) main > div{
     transform: scale(0);
     transition: 3s;
-
   }
 
   label:not(:has(#welcome)){
@@ -112,6 +111,7 @@ main {
   z-index: -3;
   transition: box-shadow 3s;
   box-shadow: inset 0 0 0 400px black;
+  
 
   /* transform: translateY(2vh); */
 
@@ -127,13 +127,10 @@ main {
       font-size: clamp(1rem, 5vw, 5rem);
       transform: scale(0);
       animation: --wave 2s ease-in-out infinite, --rainbowcolor 1.5s linear infinite;
+      animation-delay: calc(.4s * (var(--index-h1) - 1));
       text-shadow:0px 0px 0px #fff,0px 0px 0px #614ad3;
   }
-  
-  h1 span:nth-child(n) {
-      animation-delay: calc(.4s * (var(--index-h1) - 1));
-  }
-  
+
   h1 span:nth-child(1) { --index-h1: 1; }
   h1 span:nth-child(2) { --index-h1: 2; }
   h1 span:nth-child(3) { --index-h1: 3; }
@@ -943,7 +940,7 @@ ul:nth-of-type(5) {
     border-style: solid;
     border-width: 0 var(--width-mountain) var(--height-mountain)
       var(--width-mountain);
-    border-color: transparent transparent #003547 transparent;
+    border-color: transparent transparent #004458 transparent;
     z-index: -1;
     transition: bottom 5s;
     &::before {
@@ -954,7 +951,7 @@ ul:nth-of-type(5) {
       height: 0;
       border-style: solid;
       border-width: var(--height-mountain) 0 0 var(--width-mountain);
-      border-color: transparent transparent transparent #c9e3eb;
+      border-color: transparent transparent transparent #cfdfe4;
     }
   }
 }
